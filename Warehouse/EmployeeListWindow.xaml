@@ -1,0 +1,42 @@
+﻿<Window x:Class="Warehouse.EmployeeListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Warehouse"
+        mc:Ignorable="d"
+        Title="Сотрудники" Height="500" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <DataGrid x:Name="userGrid" AutoGenerateColumns="False" Margin="10,78,10,50" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Идентификатор" Binding="{Binding UserID}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Width="*"/>
+                <DataGridTextColumn Header="Пароль" Binding="{Binding Password}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" Width="*"/>
+                <DataGridTextColumn Header="Уровень доступа" Binding="{Binding AccessLevel}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10">
+            <Button x:Name="AddUserButton" Content="Добавить сотрудника" Width="150" Margin="0,0,10,0" Click="AddUserButton_Click"   Foreground="#F4F2F3" Background="#043D3D" BorderThickness="0" Cursor="Hand" />
+            <Button x:Name="EditUserButton" Content="Редактировать данные" Width="150" Margin="0,0,10,0" Click="EditUserButton_Click" Height="30" Foreground="#F4F2F3" Background="#043D3D" BorderThickness="0" Cursor="Hand" />
+            <Button x:Name="DeleteUserButton" Content="Удалить сотрудника" Width="150" Margin="0,0,10,0" Click="DeleteUserButton_Click"   Foreground="#F4F2F3" Background="#043D3D" BorderThickness="0" Cursor="Hand" />
+
+
+            <!--Кнопкa создания отчетов-->
+            <Button x:Name="Exel" Width="30" Height="30" Margin="250,0,0,0" BorderThickness="0" Background="Transparent" Click="Exel_Click">
+                <Image Source="Images/excel.png" Width="30" Height="30" Cursor="Hand"/>
+            </Button>
+
+        </StackPanel>
+        <Label Content="Введите имя сотрудника:" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="UserSearchComboBox" HorizontalAlignment="Left" Margin="170,41,0,0" VerticalAlignment="Top" Width="261" FontSize="14" SelectionChanged="UserSearchComboBox_SelectionChanged" Cursor="Hand">
+        </ComboBox>
+        <Label Content="Выберите уровень доступа:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxSearchUser" HorizontalAlignment="Left" Margin="170,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" FontSize="16" Cursor="IBeam" TextChanged="TextBoxSearchUser_TextChanged"/>
+        <Button HorizontalAlignment="Left" Margin="408,13,0,0" VerticalAlignment="Top" Width="23" Height="23">
+            <Image Source="/Images/find.png" Cursor="IBeam"/>
+        </Button>
+        <Button x:Name="ResetSearchButton" Content="Сбросить поиск" HorizontalAlignment="Left" Height="25" Margin="436,41,0,0" VerticalAlignment="Top" Width="120" Click="ResetSearchButton_Click"/>
+    </Grid>
+</Window>

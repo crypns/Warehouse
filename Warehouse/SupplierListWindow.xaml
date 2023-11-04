@@ -1,0 +1,33 @@
+﻿<Window x:Class="Warehouse.SupplierListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Warehouse"
+        mc:Ignorable="d"
+        Title="Поставщики" Height="500" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen"  ResizeMode="NoResize">
+
+    <Grid>
+        <DataGrid x:Name="supplierGrid" AutoGenerateColumns="False" Margin="10,55,10,50" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Идентификатор" Binding="{Binding SupplierID}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10">
+            <Button x:Name="AddSupplierButton" Content="Добавить поставщика" Width="150" Margin="0,0,10,0" Click="AddSupplierButton_Click" Foreground="#F4F2F3" Background="#043D3D" BorderThickness="0" Cursor="Hand" />
+            <Button x:Name="EditSupplierButton" Content="Редактировать данные" Width="150" Margin="0,0,10,0" Click="EditSupplierButton_Click" Height="30" Foreground="#F4F2F3" Background="#043D3D" BorderThickness="0" Cursor="Hand" />
+            <Button x:Name="DeleteSupplierButton" Content="Удалить поставщика" Width="150" Margin="0,0,10,0" Click="DeleteSupplierButton_Click" Foreground="#F4F2F3" Background="#043D3D" BorderThickness="0" Cursor="Hand" />
+        </StackPanel>
+        <TextBox x:Name="TextBoxSearchSupplier" TextChanged="TextBoxSearchSupplier_TextChanged" HorizontalAlignment="Left" Margin="221,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" FontSize="16" Cursor="IBeam"/>
+        <Label Content="Введите наименование поставщика:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Button HorizontalAlignment="Left" Margin="473,13,0,0" VerticalAlignment="Top" Width="23" Height="23" Cursor="Hand">
+            <Image Source="/Images/find.png" Cursor="IBeam"/>
+        </Button>
+        <!--Кнопкa создания отчетов-->
+        <Button x:Name="Exel" Margin="738,414,10,10" BorderThickness="0" Background="Transparent" Click="Exel_Click">
+            <Image Source="Images/excel.png" Width="30" Height="30" Cursor="Hand"/>
+        </Button>
+    </Grid>
+</Window>

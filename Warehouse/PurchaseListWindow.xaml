@@ -1,0 +1,38 @@
+﻿<Window x:Class="Warehouse.PurchaseListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Warehouse"
+        mc:Ignorable="d"
+        Title="Покупки" Height="500" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen"  ResizeMode="NoResize">
+    <Grid>
+        <DataGrid x:Name="purchaseGrid" AutoGenerateColumns="False" Margin="10,80,10,50" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Идентификатор покупки" Binding="{Binding PurchaseID}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="Продукт" Binding="{Binding ProductName}" Width="*"/>
+                <DataGridTextColumn Header="Пользователь" Binding="{Binding UserName}" Width="*"/>
+                <DataGridTextColumn Header="Количество" Binding="{Binding Quantity}" Width="*"/>
+                <DataGridTextColumn Header="Сумма" Binding="{Binding Amount}" Width="*"/>
+                <DataGridTextColumn Header="Дата покупки" Binding="{Binding PurchaseDate}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10">
+            <Button x:Name="AddPurchaseButton" Content="Добавить покупку" Width="150" Margin="0,0,10,0" Click="AddPurchaseButton_Click" Foreground="#F4F2F3" Background="#043D3D" BorderThickness="0" Cursor="Hand" />
+            <Button x:Name="EditPurchaseButton" Content="Редактировать покупку" Width="150" Margin="0,0,10,0" Click="EditPurchaseButton_Click" Height="30" Foreground="#F4F2F3" Background="#043D3D" BorderThickness="0" Cursor="Hand" />
+            <Button x:Name="DeletePurchaseButton" Content="Удалить покупку" Width="150" Margin="0,0,10,0" Click="DeletePurchaseButton_Click" Foreground="#F4F2F3" Background="#043D3D" BorderThickness="0" Cursor="Hand" />
+        </StackPanel>
+        <ComboBox x:Name="ComboBoxChoose" HorizontalAlignment="Left" Margin="164,11,0,0" VerticalAlignment="Top" Width="301" FontSize="14" Cursor="Hand" SelectionChanged="ComboBoxChoose_SelectionChanged"/>
+        <Label Content="Выберите пользователя:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxSearchProduct" TextChanged="TextBoxSearchProduct_TextChanged" HorizontalAlignment="Left" Margin="204,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" FontSize="16" Cursor="IBeam"/>
+        <Label Content="Введите наименование продукта:" HorizontalAlignment="Left" Margin="9,40,0,0" VerticalAlignment="Top"/>
+        <Button HorizontalAlignment="Left" Margin="442,43,0,0" VerticalAlignment="Top" Width="23" Height="23">
+            <Image Source="/Images/find.png" Cursor="IBeam"/>
+        </Button>
+        <!--Кнопкa создания отчетов-->
+        <Button x:Name="Exel" Margin="740,416,10,10" BorderThickness="0" Background="Transparent" Click="Exel_Click">
+            <Image Source="Images/excel.png" Width="30" Height="30" Cursor="Hand"/>
+        </Button>
+        <Button x:Name="ResetSearchButton" Content="Сбросить поиск" HorizontalAlignment="Left" Height="25" Margin="470,11,0,0" VerticalAlignment="Top" Width="120" Click="ResetSearchButton_Click"/>
+    </Grid>
+</Window>

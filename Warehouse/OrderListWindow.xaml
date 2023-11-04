@@ -1,0 +1,41 @@
+﻿<Window x:Class="Warehouse.OrderListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Warehouse"
+        mc:Ignorable="d"
+        Title="Заказы" Height="500" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen"  ResizeMode="NoResize">
+    <Grid>
+        <DataGrid x:Name="orderGrid" AutoGenerateColumns="False" Margin="10,104,10,50" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Идентификатор заказа" Binding="{Binding OrderID}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="Поставщик" Binding="{Binding SupplierName}" Width="*"/>
+                <DataGridTextColumn Header="Пользователь" Binding="{Binding UserName}" Width="*"/>
+                <DataGridTextColumn Header="Продукт" Binding="{Binding ProductName}" Width="*"/>
+                <DataGridTextColumn Header="Сумма" Binding="{Binding Amount}" Width="*"/>
+                <DataGridTextColumn Header="Дата заказа" Binding="{Binding OrderDate}" Width="*"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10">
+            <Button x:Name="AddOrderButton" Content="Добавить заказ" Width="150" Margin="0,0,10,0" Click="AddOrderButton_Click" Foreground="#F4F2F3" Background="#043D3D" BorderThickness="0" Cursor="Hand" />
+            <Button x:Name="EditOrderButton" Content="Редактировать заказ" Width="150" Margin="0,0,10,0" Click="EditOrderButton_Click" Height="30" Foreground="#F4F2F3" Background="#043D3D" BorderThickness="0" Cursor="Hand" />
+            <Button x:Name="DeleteOrderButton" Content="Удалить заказ" Width="150" Margin="0,0,10,0" Click="DeleteOrderButton_Click" Foreground="#F4F2F3" Background="#043D3D" BorderThickness="0" Cursor="Hand" />
+        </StackPanel>
+        <TextBox x:Name="TextBoxSearchProduct" HorizontalAlignment="Left" Margin="204,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" FontSize="16" Cursor="IBeam" TextChanged="TextBoxSearchProduct_TextChanged"/>
+        <Label Content="Введите наименование продукта:" HorizontalAlignment="Left" Margin="9,7,0,0" VerticalAlignment="Top"/>
+        <Button HorizontalAlignment="Left" Margin="442,10,0,0" VerticalAlignment="Top" Width="23" Height="23">
+            <Image Source="/Images/find.png" Cursor="IBeam"/>
+        </Button>
+        <ComboBox x:Name="ComboBoxChoose_User" HorizontalAlignment="Left" Margin="163,39,0,0" VerticalAlignment="Top" Width="301" FontSize="14" Cursor="Hand" SelectionChanged="ComboBoxChoose_User_SelectionChanged"/>
+        <Label Content="Выберите пользователя:" HorizontalAlignment="Left" Margin="9,38,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ComboBoxChoose_Supplier" HorizontalAlignment="Left" Margin="164,70,0,0" VerticalAlignment="Top" Width="300" FontSize="14" Cursor="Hand" SelectionChanged="ComboBoxChoose_Supplier_SelectionChanged"/>
+        <Label Content="Выберите поставщика:" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
+        <!--Кнопкa создания отчетов-->
+        <Button x:Name="Exel" Margin="735,415,10,10" BorderThickness="0" Background="Transparent" Click="Exel_Click">
+            <Image Source="Images/excel.png" Width="30" Height="30" Cursor="Hand"/>
+        </Button>
+        <Button x:Name="ResetSearchButton" Content="Сбросить поиск" HorizontalAlignment="Left" Height="25" Margin="469,70,0,0" VerticalAlignment="Top" Width="120" Click="ResetSearchButton_Click"/>
+    </Grid>
+</Window>

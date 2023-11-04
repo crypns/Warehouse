@@ -1,0 +1,35 @@
+﻿<Window x:Class="Warehouse.EmployeeAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Warehouse"
+        mc:Ignorable="d"
+        Title="Добавление сотрудника" Height="210" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Логин:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,6,0,0"/>
+        <TextBox Name="LoginTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="118,10,0,0"/>
+
+        <Label Content="Пароль:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,31,0,0"/>
+        <PasswordBox Name="PasswordBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="118,35,0,0"/>
+
+        <Label Content="Имя:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,56,0,0"/>
+        <TextBox Name="NameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="118,60,0,0"/>
+
+        <Label Content="Телефон:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,81,0,0"/>
+        <TextBox Name="PhoneTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="118,85,0,0"/>
+
+        <Label Content="Уровень доступа:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,108,0,0"/>
+        <ComboBox Name="AccessLevelComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="118,110,0,0"  SelectedIndex="0" SelectedValuePath="Content" IsEditable="False" IsReadOnly="True" IsTextSearchEnabled="False">
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+            <ComboBoxItem Content="4"/>
+        </ComboBox>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,135,0,0">
+            <Button Content="Сохранить" Click="SaveButton_Click" Width="145" Foreground="#F4F2F3" Background="#043D3D" BorderThickness="0" FontSize="16"/>
+            <Button Content="Отмена" Click="CancelButton_Click" Width="145" Margin="18,0,0,0" Foreground="#F4F2F3" Background="#043D3D" BorderThickness="0" FontSize="16"/>
+        </StackPanel>
+    </Grid>
+</Window>
